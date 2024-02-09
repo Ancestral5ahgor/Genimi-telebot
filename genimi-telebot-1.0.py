@@ -10,10 +10,10 @@ from telegram import InlineQueryResultArticle, InputTextMessageContent
 
 
 # 你的 Telegram Bot API Token
-TELEGRAM_BOT_TOKEN = '6629240655:AAFhcqgyO-sPw8zat08zUTLj65jJeBUicHY'
+TELEGRAM_BOT_TOKEN = ''
 
 # 你的 Gemini API Token
-GEMINI_API_TOKEN = 'AIzaSyBaLoVDMAGNMHYbZYJz37w8MUgojKnFvjQ'
+GEMINI_API_TOKEN = ''
 
 # 初始化 Telegram bot 客户端
 updater = Updater(token=TELEGRAM_BOT_TOKEN, use_context=True, request_kwargs={'connect_timeout': 10, 'read_timeout': 10})
