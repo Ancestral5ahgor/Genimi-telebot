@@ -16,10 +16,10 @@ def to_markdown(text):
   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
 
 # 你的 Telegram Bot API Token
-TELEGRAM_BOT_TOKEN = '6629240655:AAFhcqgyO-sPw8zat08zUTLj65jJeBUicHY'
+TELEGRAM_BOT_TOKEN = ''
 
 # 你的 Gemini API Token
-GEMINI_API_TOKEN = 'AIzaSyBaLoVDMAGNMHYbZYJz37w8MUgojKnFvjQ'
+GEMINI_API_TOKEN = ''
 
 # 加载 .env 文件中的环境变量
 load_dotenv('.env')
