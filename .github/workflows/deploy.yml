@@ -15,6 +15,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Modify SSH configuration on runner
+        run: |
+          sudo sed -i '/^Ciphers/s/^/#/' /etc/ssh/ssh_config
+          sudo systemctl restart ssh
+
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.7.0
         with:
