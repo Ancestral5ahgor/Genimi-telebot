@@ -31,6 +31,7 @@ jobs:
         run: |
           scp -o StrictHostKeyChecking=no test.tar.gz root@185.239.227.214:/www/
           ssh root@185.239.227.214 "cd /www/ 
+          echo "测试成功！"
         #scp -o StrictHostKeyChecking=no public.tar.gz root@185.239.227.214:/www/
         
       
