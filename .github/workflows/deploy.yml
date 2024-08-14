@@ -1,0 +1,36 @@
+# test-deploy.yml
+
+name: 部署测试
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Package
+        run: |
+          tar -czvf test.tar.gz "./public"
+          echo "打包成功！压缩文件已创建。"
+          echo "压缩文件位置：./test.tar.gz"  
+
+      - name: Deploy to remote server
+        working-directory: ./
+        run: |
+          scp -o StrictHostKeyChecking=no test.tar.gz root@185.239.227.214:/www/
+          ssh root@185.239.227.214 "cd /www/ 
+        #scp -o StrictHostKeyChecking=no public.tar.gz root@185.239.227.214:/www/
+        
+      
