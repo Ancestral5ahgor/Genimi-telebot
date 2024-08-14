@@ -20,16 +20,10 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Package
-        run: |
-          tar -czvf test.tar.gz "./public"
-          echo "打包成功！压缩文件已创建。"
-          echo "压缩文件位置：./test.tar.gz"  
-
       - name: Deploy to remote server
         working-directory: ./
         run: |
-          scp -o StrictHostKeyChecking=no test.tar.gz root@185.239.227.214:/www/
+          scp -o StrictHostKeyChecking=no genimi-telebot-1.1.py root@185.239.227.214:/www/
           ssh root@185.239.227.214 "cd /www/ 
           echo "测试成功！"
         #scp -o StrictHostKeyChecking=no public.tar.gz root@185.239.227.214:/www/
